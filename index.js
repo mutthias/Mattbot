@@ -1,5 +1,6 @@
 const {Client, Intents, Message} = require('discord.js');
 const {token} = require('./config.json');
+require("dotenv").config();
 
 const client = new Client({
   intents: [
@@ -20,4 +21,10 @@ client.on('message', (message) => {
   }
 });
 
-client.login(token);
+const welcomeChannelID = "991602566066602056";
+
+client.on('guildMemberAdd', (member) => {
+  member.guild.channels.cache.get(welcomeChannelID).send(`<@${member.id}> Welcome to da server`);
+})
+
+client.login(process.env.TOKEN);
