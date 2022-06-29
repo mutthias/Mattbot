@@ -1,0 +1,29 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "matt",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.35.0",
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  },
+  "description": "following a youtube tutorial for discord bot project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mutthias/Discord-Bot--YouTube-Tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mutthias/Discord-Bot--YouTube-Tutorial/issues"
+  },
+  "homepage": "https://github.com/mutthias/Discord-Bot--YouTube-Tutorial#readme"
+}
