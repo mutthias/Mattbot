@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "matt",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
@@ -17,5 +17,13 @@
   "devDependencies": {
     "@types/node": "^18.0.0"
   },
-  "description": ""
+  "description": "following a youtube tutorial for discord bot project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mutthias/Discord-Bot--YouTube-Tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mutthias/Discord-Bot--YouTube-Tutorial/issues"
+  },
+  "homepage": "https://github.com/mutthias/Discord-Bot--YouTube-Tutorial#readme"
 }
