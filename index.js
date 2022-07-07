@@ -13,7 +13,7 @@ const client = new Discord.Client({
 
 let bot = {
   client,
-  prefix: "n.",
+  prefix: "!",
   owners: ["582376952980045842"]
 }
 
@@ -26,7 +26,13 @@ client.loadCommands = (bot, reload) => require("./handlers/commands")(bot, reloa
 client.loadEvents(bot, false);
 client.loadCommands(bot, false);
 
-module.exports = bot;
+module.exports = bot
+
+client.login(process.env.TOKEN);
+
+
+
+
 
 // client.once('ready', () => {
 //   console.log(`Logged in as ${client.user.tag}`);
@@ -49,5 +55,3 @@ module.exports = bot;
 //     files: [img]
 //   })
 // })
-
-client.login(process.env.TOKEN);

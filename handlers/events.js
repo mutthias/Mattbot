@@ -11,7 +11,7 @@ module.exports = (bot, reload) => {
 
   events.forEach((f, i) => {
     if (reload) 
-      delete require.cache[requestAnimationFrame.resolve(`../events/${f}`)]
+      delete require.cache[require.resolve(`../events/${f}`)]
     
     const event = require(`../events/${f}`)
     client.events.set(event.name, event);
@@ -43,13 +43,13 @@ function triggerEventHandler(bot, event, ...args) {
 function initEvents(bot) {
   const {client} = bot;
 
-  client.on('ready', () => {
-    triggerEventHandler(bot, "ready")
+  client.on('ready', (message) => {
+    triggerEventHandler(bot, "messageCreate", message)
   })
 
-  client.on('meesageCreate', (message) => {
-    triggerEventHandler(bot, 'messageCreate', message)
-  })
+  client.on("messageCreate", (message) => {
+    triggerEventHandler(bot, "messageCreate", message)
+})
 
   // client.on('message', (message) => {
   //   if (message.author.id === client.user.id) return;

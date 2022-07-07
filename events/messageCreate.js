@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 module.exports = {
   name: "messageCreate",
   run: async function runAll(bot, message) {
+
     const {client, prefix, owners} = bot
 
     if (!message.guild) return
