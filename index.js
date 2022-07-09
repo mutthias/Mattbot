@@ -1,19 +1,27 @@
 const Discord = require('discord.js');
+const {MessageEmbed} = require("discord.js");
 require("dotenv").config();
 
 const generateImage = require("./generateimage.js");
 
 const client = new Discord.Client({
+  allowedMentions: {
+    parse: [`users`, `roles`],
+    repliedUser: true,
+  },
+
   intents: [
     "GUILDS",
     "GUILD_MESSAGES",
-    "GUILD_MEMBERS"
+    "GUILD_PRESENCES",
+    "GUILD_MEMBERS",
+    "GUILD_MESSAGE_REACTIONS",
   ]
 });
 
 let bot = {
   client,
-  prefix: "!",
+  prefix: "-",
   owners: ["582376952980045842"]
 }
 
@@ -29,6 +37,7 @@ client.loadCommands(bot, false);
 module.exports = bot
 
 client.login(process.env.TOKEN);
+
 
 
 

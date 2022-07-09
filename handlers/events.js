@@ -23,7 +23,6 @@ module.exports = (bot, reload) => {
 
   if (!reload)
     initEvents(bot);
-
 }
 
 function triggerEventHandler(bot, event, ...args) {
@@ -43,19 +42,12 @@ function triggerEventHandler(bot, event, ...args) {
 function initEvents(bot) {
   const {client} = bot;
 
-  client.on('ready', (message) => {
-    triggerEventHandler(bot, "messageCreate", message)
+  client.on('ready', () => {
+    triggerEventHandler(bot, 'ready')
   })
 
   client.on("messageCreate", (message) => {
     triggerEventHandler(bot, "messageCreate", message)
 })
 
-  // client.on('message', (message) => {
-  //   if (message.author.id === client.user.id) return;
-  
-  //   if (message.content === "ping") {
-  //     message.reply("boy shutcho squiggly diggly ass up twerk");
-  //   }
-  // });
 }
