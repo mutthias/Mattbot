@@ -37,7 +37,7 @@ module.exports = {
         let url = interaction.options.getString("url")
         const result = await client.player.search(url, {
           requestedBy: interaction.user,
-          searchEngine: QueryType.YOUTUBE_VIDEO
+          searchEngine: QueryType.AUTO
         })
         if (result.tracks.length === 0) return interaction.editReply("Couldn't find song!")
 
@@ -52,7 +52,7 @@ module.exports = {
           let url = interaction.options.getString("url")
           const result = await client.player.search(url, {
             requestedBy: interaction.user,
-            searchEngine: QueryType.YOUTUBE_PLAYLIST
+            searchEngine: QueryType.AUTO
           })
           if (result.tracks.length === 0) return interaction.editReply("Couldn't find song!")
 
@@ -60,7 +60,7 @@ module.exports = {
           await queue.addTracks(result.tracks)
           embed
             .setDescription(`**${result.tracks.length} songs from [${playlist.title}](${playlist.url})** has been added to the Queue.`)
-            .setThumbnail(song.thumbnail)
+            .setThumbnail(result.thumbnail)
 
       } else if (interaction.options.getSubcommand() === "search") {
           let url = interaction.options.getString("searchterms")
