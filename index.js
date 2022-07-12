@@ -61,9 +61,6 @@ if (LOAD_SLASH) {
   })
 }
 else {
-  client.on("ready", () => {
-    console.log(`im logged in as ${client.user.tag}`)
-  })
   client.on("interactionCreate", (interaction) => {
     async function handleCommand() {
       if (!interaction.isCommand()) return;
