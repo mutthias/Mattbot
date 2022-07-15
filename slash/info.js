@@ -11,14 +11,17 @@ module.exports = {
 
     if (!queue) return await interaction.editReply("There are no songs in the queue")
 
+    const currentSong = queue.current
+
     let bar = queue.createProgressBar({
       queue: false,
       length: 19
     })
     await interaction.editReply({
-      embeds: [new MessageEmbed()
-        .setThumbnail(song.thumbnail)
-        .setDescription(`Currently Playing [${song.title}](${song.url})\n\n` + bar)],
+      embeds: [
+        new MessageEmbed()
+        .setThumbnail(currentSong.thumbnail)
+        .setDescription(`Currently Playing [${currentSong.title}](${currentSong.url})\n\n` + bar)],
     })
   }
 }

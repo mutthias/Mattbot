@@ -14,5 +14,6 @@ module.exports = {
 
     queue.shuffle()
     await interaction.editReply("The queue has been shuffled!")
+    
   },
 }

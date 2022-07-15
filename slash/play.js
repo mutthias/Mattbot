@@ -45,7 +45,8 @@ module.exports = {
         await queue.addTrack(song)
         embed
           .setDescription(`**[${song.title}](${song.url})** has been added to the Queue.`)
-          .setThumbnail(song.thumbnail)
+          .setThumbnail("https://assets.change.org/photos/1/lb/gp/FylbgpJubrHnYic-1600x900-noPad.jpg?1526759625")
+          .setImage(song.thumbnail)
           .setFooter({text: `Duration: ${song.duration}`})
 
       } else if (interaction.options.getSubcommand() === "playlist") {
@@ -60,7 +61,8 @@ module.exports = {
           await queue.addTracks(result.tracks)
           embed
             .setDescription(`**${result.tracks.length} songs from [${playlist.title}](${playlist.url})** has been added to the Queue.`)
-            .setThumbnail(result.thumbnail)
+            .setThumbnail("https://assets.change.org/photos/1/lb/gp/FylbgpJubrHnYic-1600x900-noPad.jpg?1526759625")
+            .setImage(playlist.thumbnail)
 
       } else if (interaction.options.getSubcommand() === "search") {
           let url = interaction.options.getString("searchterms")
@@ -74,10 +76,13 @@ module.exports = {
           await queue.addTrack(song)
           embed
             .setDescription(`**[${song.title}](${song.url})** has been added to the Queue.`)
-            .setThumbnail(song.thumbnail)
+            .setThumbnail("https://assets.change.org/photos/1/lb/gp/FylbgpJubrHnYic-1600x900-noPad.jpg?1526759625")
+            .setImage(song.thumbnail)
             .setFooter({text: `Duration: ${song.duration}`})
+            
       }
       if (!queue.playing) await queue.play()
       await interaction.editReply({embeds: [embed]})
+      await interaction.editReply(interaction.options.getString("url"))
     }
 }
